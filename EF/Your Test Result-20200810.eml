@@ -1,0 +1,235 @@
+Delivered-To: jiao.zhu@pwc.com
+Received: by 2002:a54:2d82:0:0:0:0:0 with SMTP id j2csp215395ecp;
+        Mon, 10 Aug 2020 19:45:47 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJw3oiwF7En3fb95TjJ3sF3BLviLjLCMWFnDyw3Q8szbsV7RdkgIUeYsBOqFvSP5NerCXgVS
+X-Received: by 2002:a02:29ca:: with SMTP id p193mr23993389jap.131.1597113947646;
+        Mon, 10 Aug 2020 19:45:47 -0700 (PDT)
+Return-Path: <EFCorporate@ef.com>
+Received: from mx08-00096704.pphosted.com (mx08-00096704.pphosted.com. [185.183.28.253])
+        by mx.google.com with ESMTPS id y11si17282314jai.44.2020.08.10.19.45.46
+        for <jiao.zhu@pwc.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 10 Aug 2020 19:45:47 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning efcorporate@ef.com does not designate 209.85.216.69 as permitted sender) client-ip=209.85.216.69;
+Authentication-Results: mx.google.com;
+       arc=fail (body hash mismatch);
+       spf=softfail (google.com: domain of transitioning efcorporate@ef.com does not designate 209.85.216.69 as permitted sender) smtp.mailfrom=EFCorporate@ef.com
+Authentication-Results: ppops.net;
+	spf=softfail smtp.mailfrom=EFCorporate@ef.com;
+	dmarc=reject header.from=ef.com
+Received: from pps.filterd (m0170608.ppops.net [127.0.0.1])
+	by mx08-00096704.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id 07B2hSco013724
+	for <jiao.zhu@pwc.com>; Tue, 11 Aug 2020 02:45:45 GMT
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
+	by mx08-00096704.pphosted.com with ESMTP id 32ss3bgspp-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <jiao.zhu@pwc.com>; Tue, 11 Aug 2020 02:45:45 +0000
+Received: by mail-pj1-f69.google.com with SMTP id hi12so1106866pjb.6
+        for <jiao.zhu@pwc.com>; Mon, 10 Aug 2020 19:45:44 -0700 (PDT)
+X-Gm-Message-State: AOAM5334yk9qYz7WdoW7zHRhp3boYAS0AOKbYzB+WDBBz4sAZwjZDMdH
+	rprlewl4OAhuGEUe8gfWM3y6pwCxIXh/19bOxrcBQya8YMZaYC6HqH3ELvzh2JS9CZD4RJg/q+A
+	zZBCCB7dN
+X-Received: by 2002:a63:4c5f:: with SMTP id m31mr20388592pgl.403.1597113943071;
+        Mon, 10 Aug 2020 19:45:43 -0700 (PDT)
+X-Received: by 2002:a63:4c5f:: with SMTP id m31mr20388497pgl.403.1597113941049;
+        Mon, 10 Aug 2020 19:45:41 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1597113940; cv=none;
+        d=google.com; s=arc-20160816;
+        b=qjS+hkJoLcYxxZDhX1XXTXHDwpIr/TYv9RMwTHbWl2MIRy9dvN3spO7cTQ9Yyels2Y
+         vozwBlTmdDrszlx6GplP5Q2GsWyUfs2rbfhvwWyd8Eh03+ph2Bjs4QWrBitW8fMVQ9V+
+         riqqyS3D+7MT2V1sovOr5Dflb2+bA7UzPYw3U4bbJNkzVYeAj2llzIpZ1uzkR73L8DO4
+         VAuPbFBwLNlGHk9SVGWDhBg7orFEjg0xRWPsAapqomo7iG9BQpwueS4DmFmbGFw7M6CC
+         JxJARBaF96xulobNKHJmwZaJ483N5aiWBMjAuxBVxx6aphjfdNzgUO2HeOOYgy/uXrpA
+         B9Gg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:subject:date:to:from:sender:mime-version
+         :message-id;
+        bh=5GBZY/qQqOJmphjmfd6dAEYyD2AyPiqRkUv97f06Ig8=;
+        b=IVUsXutwtynwUUPozeeR+q32fypMz/o61fA2et8OGAoxmm0c4z9RkxLdgA5UbVsJfl
+         h3rP02GZ6O2cRWAtwMgRGftWV2/7WMrir9hQePLHtC2Kbka1HswPiixI6pzvVWvcEJl6
+         Yabui3AY6V4RXX+21Uc5aO0nl4bGz8yeO/1ClSGxBeHXq3QqkO/bKygrWa6jKpJIqRno
+         d5mizXF8YGYBCXg8dqz8GB9R0Z10gJcvFKo+b6KaFX9yFxbWoRgC0uqwa9n11gMJuvit
+         pMIMsIztatrper408poAEswb60QjM/DvDrsdysYpmBTLVLXKZSfN9qJrYIFvJ7rNLSYN
+         h5Sw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       spf=pass (google.com: domain of efcorporate@ef.com designates 123.207.185.116 as permitted sender) smtp.mailfrom=EFCorporate@ef.com;
+       dmarc=pass (p=REJECT sp=NONE dis=NONE) header.from=ef.com
+Received: from mail.englishtown.com ([123.207.185.116])
+        by mx.google.com with ESMTP id f2si12896548pgn.325.2020.08.10.19.45.39
+        for <jiao.zhu@pwc.com>;
+        Mon, 10 Aug 2020 19:45:40 -0700 (PDT)
+Received-SPF: pass (google.com: domain of efcorporate@ef.com designates 123.207.185.116 as permitted sender) client-ip=123.207.185.116;
+Message-ID: <5f320654.1c69fb81.a76f4.12cfSMTPIN_ADDED_MISSING@mx.google.com>
+Received: from CSH4-WEBSVC4 (unknown [10.178.138.133])
+	by mail.englishtown.com (Postfix) with ESMTP id E6ECD40408
+	for <jiao.zhu@pwc.com>; Tue, 11 Aug 2020 10:45:38 +0800 (CST)
+Sender: EFCorporate@ef.com
+From: EFCorporate@ef.com
+To: jiao.zhu@pwc.com
+Date: 10 Aug 2020 22:45:38 -0400
+Subject: Your Test Result
+Content-Type: text/html; charset=utf-8
+X-MIME-Original-Format: 1.0
+X-CLX-Response: 1TFkXGx0cEQpMehcZGhEKWUQXZGVOHVlfcEZ9WkkRClhYF2ZNb2sZQUducGN GEQp4ThdtcAFJHUBCTWAbfhEKeUwXaVl8Wmt8bnJFGk0RCnlDF2xraB57e15lfkRrEQpDSBcHGx oaEQpDWRcHGBIZEQpDSRcaBBoaGhEKWU0XZEVETxEKWUkXGnEaEBp3BhsfHHEZHxAadwYYGgYaE
+ QpZXhdoY3kRCklGF1pdSXVPX3VCRVleT04RCkNOF1l9HV1hYG5/Q3loSGtkY0twQRhhZG5BckNJ eHkSHRtaEQpYXBcfBBoEGBsbBRsaBBIaBB4fBBgaGhAbHhofGhEKXlkXfXAcWBoRCk1cFx4dGBE KTFoXaU1NaxEKRVkXb2trEQpCTxdkflhPZm5zSXBbTxEKQ1oXGBoTBBIfBBgbHAQcExEKQl4XGx
+ EKQlwXGhEKQkUXYhgbYkNTfVhLQ38RCkJOF21wAUkdQEJNYBt+EQpCTBdmTW9rGUFHbnBjRhEKQ mwXYhgbYkNTfVhLQ38RCkJAF2hiZX9jZUh+Q11+EQpCWBdpHU5fYW1fGnp7TxEKWlgXGBEKcGgX YGEFQGJjYHl6axoQGRoRCnBoF2MZQ2ZPa01saWdpEB4SEQpwaBd6XE5cT1BTXFISRBAeEhEKcGg
+ XZW1lHG8dGAVpS3sQHhIRCnBoF2MBYmxpTFBYeWhQEBkaEQpwfRdga0xeY1N8YBJvfhAZGhEKcH 0XZGNjeWhuQV9IUnIQGRoRCnB/F2xhQ0N5HVlefmUBEBsaGhEKcF8XbWdSE097RW9jfF4QGRoRC nB/F2dMb21yGx9hTXlvEB4SEQpwXxdmUBpeGlthUklLXhAZGhEKcEMXYnkfUBlfTgFaQRsQGRoR Cm1+FxoRClhNF0sRIA==
+X-CLX-Shades: None
+Content-Transfer-Encoding: Quoted-printable
+MIME-Version: 1.0
+X-Proofpoint-Processing-Postfiltering: True
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.235,18.0.687
+ definitions=2020-08-11_02:2020-08-06,2020-08-11 signatures=0
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 malwarescore=0 phishscore=0
+ lowpriorityscore=0 clxscore=176 bulkscore=0 mlxlogscore=999
+ impostorscore=0 adultscore=0 mlxscore=0 priorityscore=30 suspectscore=81
+ spamscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.12.0-2006250000 definitions=main-2008110016
+
+<html>
+<head>
+	<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+	<title></title>
+</head>
+<body leftmargin=3D"0" rightmargin=3D"0" topmargin=3D"0" bottommargin=3D"0">
+	<table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" bgcolor=3D"#ffff=
+ff">
+		<tr>
+			<td width=3D"50%"></td>
+			<td width=3D"552" valign=3D"top" bgcolor=3D"#ffffff">
+				<table width=3D"552" cellpadding=3D"0" cellspacing=3D"0" bgcolor=3D"#ff=
+ffff">
+		<tr>
+                        <td width=3D"34" valign=3D"top" style=3D"font-size:=
+ 0; line-height: 0;">
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20
+                        </td>
+                        <td width=3D"336" valign=3D"top" style=3D"font-size=
+: 0; line-height: 0;">
+                            <a href=3D"#">
+                                <img width=3D"auto" height=3D"auto" vspace=
+=3D"0" hspace=3D"0" align=3D"left" src=3D"http://cnc.ef-cdn.com/_imgs/partn=
+erlogo/schoollogo/v2/logo_ef_v2.png"
+                                    border=3D"0" alt=3D"EducationFirst"></a>
+                        </td>
+                        <td width=3D"182" valign=3D"top" style=3D"font-size=
+: 0; line-height: 0;">
+=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=20=
+=20=20=20
+                        </td>
+                    </tr>
+					<tr><td width=3D"552" colspan=3D"4" valign=3D"top" style=3D"font-size:=
+0; line-height:0;" height=3D"5"></td></tr>
+					<tr><td width=3D"552" colspan=3D"4" valign=3D"top" height=3D"3" style=
+=3D"font-size:0; line-height:0;" bgcolor=3D"#bdd2dc"></td></tr>
+					<tr><td width=3D"552" colspan=3D"4" valign=3D"top" height=3D"1" style=
+=3D"font-size:0; line-height:0;" bgcolor=3D"#eaeaea"></td></tr>
+					<tr>
+						<td colspan=3D"4" width=3D"552" valign=3D"top">
+							<table width=3D"552" cellpadding=3D"0" cellspacing=3D"0">
+								<tr>
+									<td width=3D"21" style=3D"font-size:0; line-height:0;"></td>
+									<td width=3D"510" valign=3D"top">
+										<table width=3D"510" cellpadding=3D"0" cellspacing=3D"0">
+											<tr>
+												<td width=3D"13" valign=3D"top" style=3D"font-size:0; line-heig=
+ht:0;"></td>
+												<td width=3D"484" valign=3D"top" style=3D"line-height:20px; fon=
+t-size:12px;">
+													<font color=3D"#519023" size=3D"3" face=3D"Helvetica, Arial, s=
+ans-serif;" style=3D"line-height:38px; font-size:16px;"><strong>=E6=82=A8=
+=E7=9A=84=E8=AF=A6=E6=83=85 </strong></font><br>
+													<font color=3D"#000000" size=3D"2" face=3D"Helvetica, Arial, s=
+ans-serif;" style=3D"line-height:20px; font-size:12px;"><strong>=E5=A7=93=
+=E5=90=8D=EF=BC=9A</strong> Janny Zhu<br><strong>=E9=82=AE=E7=AE=B1=EF=BC=
+=9A</strong> jiao.zhu@pwc.com<br><strong>=E7=94=B5=E8=AF=9D=EF=BC=9A</stron=
+g> +8618061930825<br><strong>=E6=89=8B=E6=9C=BA=EF=BC=9A</strong> 180619308=
+25<br><strong>=E5=85=AC=E5=8F=B8=EF=BC=9A</strong> PriceWaterhouseCooper Gl=
+obal USA<br><strong>=E5=9B=BD=E5=AE=B6=EF=BC=9A</strong> China<br><strong>=
+=E5=AD=A6=E4=B9=A0=E7=9B=AE=E6=A0=87=EF=BC=9A</strong> <br><strong>=E5=AD=
+=A6=E4=B9=A0=E9=87=8D=E7=82=B9=EF=BC=9A</strong> <br></font>
+												</td>
+												<td width=3D"13" valign=3D"top" style=3D"font-size:0; line-heig=
+ht:0;"></td>
+											</tr>
+											<tr><td width=3D"510" colspan=3D"3" valign=3D"top" style=3D"font=
+-size:0; line-height:0;" height=3D"5"></td></tr>
+											<tr><td width=3D"510" valign=3D"top" style=3D"font-size:0; line-=
+height:0;" colspan=3D"3" height=3D"1" bgcolor=3D"#dcdcdc"></td></tr>
+											<tr>
+												<td width=3D"13" valign=3D"top" style=3D"font-size:0; line-heig=
+ht:0;"></td>
+												<td width=3D"484" valign=3D"top" style=3D"line-height:18px; fon=
+t-size:12px;">
+													<font color=3D"#519023" size=3D"3" face=3D"Helvetica, Arial, s=
+ans-serif;" style=3D"line-height:30px; font-size:16px;"><strong>=E6=82=A8=
+=E7=9A=84=E6=B5=8B=E8=AF=95=E7=BB=93=E6=9E=9C</strong></font><br>
+													<font color=3D"#000000" size=3D"2" face=3D"Helvetica, Arial, s=
+ans-serif;" style=3D"line-height:18px; font-size:12px;"><strong>=E6=97=A5=
+=E6=9C=9F=EF=BC=9A</strong> 2020-08-10<br><strong>=E6=8E=A8=E8=8D=90=E7=BA=
+=A7=E5=88=AB=EF=BC=9A</strong> <span><font color=3D"#ff9600;" style=3D"font=
+-size:15px;">9=E7=BA=A7 =EF=BC=8D =E4=B8=AD=E7=BA=A7</font></span><br><stro=
+ng>=E7=BA=A7=E5=88=AB=E6=8F=8F=E8=BF=B0=EF=BC=9A</strong><br>=E6=AD=A4=E9=
+=98=B6=E6=AE=B5=E7=BB=93=E6=9D=9F=E7=9A=84=E6=97=B6=E5=80=99=EF=BC=8C=E6=82=
+=A8=E5=B0=86=E8=83=BD=E4=BB=A5=E6=9C=89=E9=99=90=E7=9A=84=E6=96=B9=E6=B3=95=
+=E5=AF=B9=E6=8A=BD=E8=B1=A1=E4=BA=8B=E4=BB=B6=E8=A1=A8=E8=BE=BE=E8=A7=82=E7=
+=82=B9=EF=BC=8C=E6=88=96=E8=80=85=E5=AF=B9=E7=86=9F=E6=82=89=E7=9A=84=E9=A2=
+=86=E5=9F=9F=E6=8F=90=E5=87=BA=E5=BB=BA=E8=AE=AE=EF=BC=8C=E8=83=BD=E7=90=86=
+=E8=A7=A3=E8=AF=B4=E6=98=8E=E5=92=8C=E5=85=AC=E5=85=B1=E9=80=9A=E7=9F=A5=E3=
+=80=82=E8=83=BD=E7=90=86=E8=A7=A3=E5=B8=B8=E8=A7=84=E7=9A=84=E4=BF=A1=E6=81=
+=AF=E5=92=8C=E6=96=87=E7=AB=A0=EF=BC=8C=E7=90=86=E8=A7=A3=E7=86=9F=E6=82=89=
+=E9=A2=86=E5=9F=9F=E7=9A=84=E5=B8=B8=E8=A7=84=E4=BF=A1=E6=81=AF=E3=80=82=E8=
+=83=BD=E5=B0=B1=E7=86=9F=E6=82=89=E6=88=96=E5=8F=AF=E9=A2=84=E6=96=99=E7=9A=
+=84=E4=BA=8B=E4=BB=B6=E5=86=99=E4=BF=A1=E6=88=96=E8=AE=B0=E7=AC=94=E8=AE=B0=
+=E3=80=82<br><strong>=E6=80=BB=E5=88=86=EF=BC=9A</strong> 50%<br><strong>=
+=E8=AF=AD=E6=B3=95=EF=BC=9A</strong> 66%<br><strong>=E5=90=AC=E5=8A=9B=EF=
+=BC=9A</strong> 42%<br><strong>=E9=98=85=E8=AF=BB=EF=BC=9A</strong> 41%<br>=
+</font>
+												</td>
+												<td width=3D"13" valign=3D"top" style=3D"font-size:0; line-heig=
+ht:0;"></td>
+											</tr>
+											<tr><td width=3D"510" colspan=3D"3" valign=3D"top" style=3D"font=
+-size:0; line-height:0;" height=3D"26"></td></tr>
+											<tr>
+												<td width=3D"13" valign=3D"top" style=3D"font-size:0; line-heig=
+ht:0;"></td>
+												<td width=3D"484" valign=3D"top" style=3D"line-height:20px; fon=
+t-size:12px;">
+													<font color=3D"#b0b0b0" size=3D"2" face=3D"Helvetica, Arial, s=
+ans-serif;" style=3D"line-height:16px; font-size:12px;">=E7=9C=9F=E8=AF=9A=
+=E7=9A=84=E7=A5=9D=E7=A6=8F=EF=BC=8C<br/>EF=E8=8B=B1=E5=AD=9A=E4=BC=81=E4=
+=B8=9A=E5=9C=A8=E7=BA=BF=E8=AF=AD=E8=A8=80=E8=A7=A3=E5=86=B3=E6=96=B9=E6=A1=
+=88<br><br></font>
+													<font color=3D"#b0b0b0" size=3D"2" face=3D"Helvetica, Arial, s=
+ans-serif;" style=3D"line-height:18px; font-size:11px;">=E8=AF=B7=E5=8B=BF=
+=E5=9B=9E=E5=A4=8D=E6=AD=A4=E9=82=AE=E4=BB=B6=E3=80=82=E5=A6=82=E6=9E=9C=E6=
+=82=A8=E6=83=B3=E8=81=94=E7=B3=BB=E6=88=91=E4=BB=AC=EF=BC=8C <a href=3D"htt=
+ps://urldefense.proofpoint.com/v2/url?u=3Dhttp-3A__corporate.ef.com.cn_Cust=
+omerService_contactus_contactus.aspx&amp;d=3DDwMGaQ&amp;c=3DasCACUKXffk7st5=
+ltqEURQ&amp;r=3DTJwBjwK-ePvoTdMm1wzDjg&amp;m=3DSSb2aXGgKqgDAkwreE-GoBjEBQbO=
+aRFcGtcjAgUdQlM&amp;s=3DngunboIPh8Z54LvK5_0pvfMFi78t2SkmCCKW5UdYgvw&amp;e=
+=3D" style=3D"color:#6699d9; text-decoration:underline;"><font color=3D"#66=
+99d9" style=3D"line-height:18px; font-size:11px;">=E7=82=B9=E5=87=BB=E6=AD=
+=A4=E5=A4=84</font></a></font><br>
+												</td>
+												<td width=3D"13" valign=3D"top" style=3D"font-size:0; line-heig=
+ht:0;"></td>
+											</tr>
+											<tr><td width=3D"510" colspan=3D"3" valign=3D"top" style=3D"font=
+-size:0; line-height:0;" height=3D"26"></td></tr>
+										</table>
+									</td>
+									<td width=3D"21" style=3D"font-size:0; line-height:0;"></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td width=3D"50%"></td>
+		</tr>
+	</table>
+</body>
+</html>=

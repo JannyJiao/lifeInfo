@@ -1,0 +1,13 @@
+Place	Products	Status	Individual base	Individual proportion	Individual fixed amount	Individual amount	Company base	Company proportion	Company fixed amount	Company amount
+上海市	养老保险	已缴	25021.00	8.00%	0.00	2001.70	25021.00	16.00%	0.00	4003.36
+上海市	医疗保险	已缴	25021.00	2.00%	0.00	500.50	25021.00	9.00%	0.00	2251.89
+上海市	失业保险	已缴	25021.00	0.50%	0.00	125.10	25021.00	0.50%	0.00	125.11
+上海市	工伤保险	已缴	25021.00	0.00%	0.00	0.00	25021.00	0.16%	0.00	40.03
+上海市	生育保险	已缴	25021.00	0.00%	0.00	0.00	25021.00	1.00%	0.00	250.21
+Subtotal	Individual subtotal：2627.30	Company subtotal：6670.60
+
+
+公积金：
+Place	Products	Status	Personal account	Personal amount	Company amount
+上海市	公积金	汇缴	204862498	1751.00	1751.00
+Subtotal	Individual subtotal：1751.00	Company subtotal：1751.00
