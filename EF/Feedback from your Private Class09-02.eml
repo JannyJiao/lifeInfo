@@ -1,0 +1,1164 @@
+Delivered-To: jiao.zhu@pwc.com
+Received: by 2002:a54:3608:0:0:0:0:0 with SMTP id k8csp138302ecq;
+        Wed, 2 Sep 2020 17:54:24 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJyyQW4aUFD6JQ9qVUyURQg3mXA3r5cG3pgKEYznRHPQodH5Q/o52LVeUdU81PnNccQzFfG5
+X-Received: by 2002:a05:6602:1495:: with SMTP id a21mr898700iow.46.1599094463961;
+        Wed, 02 Sep 2020 17:54:23 -0700 (PDT)
+ARC-Seal: i=2; a=rsa-sha256; t=1599094463; cv=pass;
+        d=google.com; s=arc-20160816;
+        b=kiXaxjco7m79yieZMD6RN9gLDG6zeMTV7Uzq5j9GtRb3qhXu/yDe0Bw5+ctqz56iZ2
+         YiJX1M8PYyURnMQillW3+Tty+sCwiqd8RRDopUyzLqmwxOOSKH3RXuT+JSb6HwdjPa/6
+         tOIhiewjzft/bMTV1V8DB0DMLz6H7DMbEVDMEaZTlU6LHvujhQclpXuHOWP99ZD4Z7Xv
+         6pQBj80mEPWEcWw/XWeDZr4jmByy0iODrIw5V/bMXDSDP8d/Zw3svU9/Y/Edq90TEgsX
+         ZlzwY3GNnagpbITvCLnHzBx6dbLUHUREdwDDK9t6ieCnaq5vbC3kBDce8TUWTmfwBY8K
+         AtRA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:mime-version:subject:message-id:to:reply-to:from
+         :date:dkim-signature;
+        bh=vqwpcIoEZ+U9VQ2p7XqvS7aV5O+GnPpZby0WqYRedfc=;
+        b=l8whIPM5vdyFxnRQotRlbKlVzDOQSn3trf8rcB9/wSksmEv87A27NVMFIgYpV58wKG
+         UH4aImtusgHSIopyYwYfajv/01HXks5bbID7fTTe6hEbPEgBHo66JSYC/6Yr6FRUOZhG
+         JlvrvQYMJzR6cDiyG7EG1dNt6K6xAsLjlad8Onq6UzSB3AgXdd/ED/DG67jRrN+vL0s4
+         Ys8mgWCNDMYCxQl7gLxV9BNKBFWBWmtbv7mBfekcmp6W8L1H7USP1ErDlqZf8tH5WnaD
+         O04whYSWVZhxayDLYLsdVWFTEW4+oq9t2gd5oFi0r9IHaHc5a2CRtCsdPEzzOgjTvT3b
+         rYdg==
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@transact.ef.com header.s=spop1024 header.b=h7lty+sR;
+       arc=pass (i=1 spf=pass spfdomain=bounce.t-educationfirst.mkt4686.com dkim=pass dkdomain=transact.ef.com dmarc=pass fromdomain=ef.com);
+       spf=fail (google.com: domain of v-dgekbcl_bnifhdlhe_henfkipn_henfkipn_a-1@bounce.t-educationfirst.mkt4686.com does not designate 209.85.219.198 as permitted sender) smtp.mailfrom=v-dgekbcl_bnifhdlhe_henfkipn_henfkipn_a-1@bounce.t-educationfirst.mkt4686.com
+Return-Path: <v-dgekbcl_bnifhdlhe_henfkipn_henfkipn_a-1@bounce.t-educationfirst.mkt4686.com>
+Received: from mx08-00096704.pphosted.com (mx08-00096704.pphosted.com. [185.183.28.253])
+        by mx.google.com with ESMTPS id d19si1010209jak.66.2020.09.02.17.54.23
+        for <jiao.zhu@pwc.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 02 Sep 2020 17:54:23 -0700 (PDT)
+Received-SPF: fail (google.com: domain of v-dgekbcl_bnifhdlhe_henfkipn_henfkipn_a-1@bounce.t-educationfirst.mkt4686.com does not designate 209.85.219.198 as permitted sender) client-ip=209.85.219.198;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@transact.ef.com header.s=spop1024 header.b=h7lty+sR;
+       arc=pass (i=1 spf=pass spfdomain=bounce.t-educationfirst.mkt4686.com dkim=pass dkdomain=transact.ef.com dmarc=pass fromdomain=ef.com);
+       spf=fail (google.com: domain of v-dgekbcl_bnifhdlhe_henfkipn_henfkipn_a-1@bounce.t-educationfirst.mkt4686.com does not designate 209.85.219.198 as permitted sender) smtp.mailfrom=v-dgekbcl_bnifhdlhe_henfkipn_henfkipn_a-1@bounce.t-educationfirst.mkt4686.com
+Authentication-Results: ppops.net;
+	spf=fail smtp.mailfrom=v-dgekbcl_bnifhdlhe_henfkipn_henfkipn_a-1@bounce.t-educationfirst.mkt4686.com;
+	dkim=pass header.d=transact.ef.com header.s=spop1024;
+	dmarc=pass header.from=transact.ef.com
+Received: from pps.filterd (m0170608.ppops.net [127.0.0.1])
+	by mx08-00096704.pphosted.com (8.16.0.42/8.16.0.42) with SMTP id 0830q2F0031811
+	for <jiao.zhu@pwc.com>; Thu, 3 Sep 2020 00:54:22 GMT
+Received: from mail-yb1-f198.google.com (mail-yb1-f198.google.com [209.85.219.198])
+	by mx08-00096704.pphosted.com with ESMTP id 3397fefaqs-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <jiao.zhu@pwc.com>; Thu, 03 Sep 2020 00:54:21 +0000
+Received: by mail-yb1-f198.google.com with SMTP id j20so1125561ybt.10
+        for <jiao.zhu@pwc.com>; Wed, 02 Sep 2020 17:54:21 -0700 (PDT)
+X-Gm-Message-State: AOAM533jmwCuo5i3OwsjZHgWudPdFPWRyWyMVJFGf8XChJb6eY6EI/vM
+	KvNMV/UWodG8R1Yv461wuYat6X1L3xD8Zit4xWjIKAdiDXJ5qQnelJrMHLKV/m1/DoafzMAiqZv
+	nCTL6K1x0
+X-Received: by 2002:a25:34c3:: with SMTP id b186mr583515yba.384.1599094460132;
+        Wed, 02 Sep 2020 17:54:20 -0700 (PDT)
+X-Received: by 2002:a25:34c3:: with SMTP id b186mr583365yba.384.1599094458283;
+        Wed, 02 Sep 2020 17:54:18 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1599094458; cv=none;
+        d=google.com; s=arc-20160816;
+        b=H139/aAzMPkziJ8Lp98cbvSQleOgoO8ATnOYTCsA0Nya7S4xb2xMa9gmqpGuw7dUg3
+         SCjnxLr3QGTqSJKhWDKzIGyzG+AFfxui5NLt8OxnT6P/tKab5VJsfyIOtcobPNc+lbOD
+         aA6Bc5gOuX3rc2yO/vgMW5zvJlcMrL/Hu8MniTXirwKbqvoQR0CUhKBtR7e5i4WXvokR
+         DBjIXCACDlHLOFFUQjJfwnxCoZhHRA2ngpQ+CR6ywVr2GbfKxdoNbKlVjBPyxohAGxQy
+         Q7XobQ/w27I2uvshdxhVelMXZX+BG8W/Vz+bwgGFIfCPEhlpU9Cw0MHQ3QY2P5svrK+u
+         f7Sg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-unsubscribe:mime-version:subject:message-id:to:reply-to:from
+         :date:dkim-signature;
+        bh=vqwpcIoEZ+U9VQ2p7XqvS7aV5O+GnPpZby0WqYRedfc=;
+        b=RncyCeUGPasmZ9sVfGNJPe3E1RTGNo9CTQOcWiwwJZZtK3aXCQWVQQnVGk6qoXrzWL
+         s2Uk8CmuND9f8sY9/95iqTEjYLpQHwrtS9ncftxDX/3/nug5gzoiQ1oRCyBBYgxnb0d6
+         /U08HJup3QvL+xv2wJ+dBodiqhZB2bdSQEhPxnyCT82ggpXUFmyWN/MA2l/C2RAMjJmu
+         Hcj/qu2QsBm6z5cN5J0sC1NWj9rFDpWRHeYgF3DGJ4qAUqYudbfHeYEnfyEk52b7VpLs
+         zGtnjbLPFaijSLHcX2BFzF08HSC92mO8ztRPdXUm1xBZ+wIQagn8WitfGfMdhGxUX+c3
+         4m0w==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@transact.ef.com header.s=spop1024 header.b=h7lty+sR;
+       spf=pass (google.com: domain of v-dgekbcl_bnifhdlhe_henfkipn_henfkipn_a-1@bounce.t-educationfirst.mkt4686.com designates 74.121.52.66 as permitted sender) smtp.mailfrom=v-dgekbcl_bnifhdlhe_henfkipn_henfkipn_a-1@bounce.t-educationfirst.mkt4686.com;
+       dmarc=pass (p=REJECT sp=NONE dis=NONE) header.from=ef.com
+Received: from mail4089.t-educationfirst.mkt4686.com (mail4089.t-educationfirst.mkt4686.com. [74.121.52.66])
+        by mx.google.com with ESMTPS id r1si1221106ybp.130.2020.09.02.17.54.17
+        for <jiao.zhu@pwc.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 02 Sep 2020 17:54:18 -0700 (PDT)
+Received-SPF: pass (google.com: domain of v-dgekbcl_bnifhdlhe_henfkipn_henfkipn_a-1@bounce.t-educationfirst.mkt4686.com designates 74.121.52.66 as permitted sender) client-ip=74.121.52.66;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=spop1024; d=transact.ef.com;
+ h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:
+ X-CSA-Complaints:List-Unsubscribe; i=teacher@transact.ef.com;
+ bh=vqwpcIoEZ+U9VQ2p7XqvS7aV5O+GnPpZby0WqYRedfc=;
+ b=h7lty+sRfxZQt1UJUPbtGVzB5BOSTC0ld6s78LdAbHtIwXhaZ+nCwXmfMwJLDiDmKQNvMpgDOOEX
+   yibET1SLukJK34AKbRIELazhJFbJbyIpw3i93bdJkNjEBtXgmkI/pm+oU3scWGtvuKPHRG85YQqg
+   Y8hc91TV9GhUTj8cedg=
+Received: by mail4089.t-educationfirst.mkt4686.com id ha0vbi2mqkgn for <jiao.zhu@pwc.com>; Thu, 3 Sep 2020 00:54:17 +0000 (envelope-from <v-dgekbcl_bnifhdlhe_henfkipn_henfkipn_a-1@bounce.t-educationfirst.mkt4686.com>)
+Date: Thu, 3 Sep 2020 00:54:17 +0000 (GMT)
+From: Your EF English Teacher <teacher@transact.ef.com>
+Reply-To: teacher@transact.ef.com
+To: jiao.zhu@pwc.com
+Message-ID: <754012908.2680401599094457117.JavaMail.app@rapp43.atlis1>
+Subject: Feedback from your Private Class
+MIME-Version: 1.0
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_135668_552170318.1599094457116"
+x-mid: 56926507
+X-CSA-Complaints: whitelist-complaints@eco.de
+x-rpcampaign: sp56926507
+x-job: 56926507
+x-orgId: 41548
+List-Unsubscribe: <mailto:v-dgekbcl_bnifhdlhe_henfkipn_henfkipn_a-1@bounce.t-educationfirst.mkt4686.com?subject=Unsubscribe>
+X-MIME-Original-Format: 1.0
+X-CLX-Response: 1TFkXGB0ZEQpMehcbGRIRCllEF2RbfG5gEmUZY3xeEQpYWBdufnxtW20Fbkd yQxEKeE4XbEBOWVNBeW1sfUsRCnhLF25+fG1bbQVuR3JDEQp5TBdhQWhGZWIZSRJuXhEKQ0gXBx sdGxEKQ1kXBxwZEQpDSRcaBBoaGhEKWU0XZEVETxEKWUkXGnEaEBp3BhgfGXEcHRgQGncGGBoGG
+ hEKWV4XbGx5EQpJRhdaXUl1T191QkVZXk9OEQpDThdCXH1ARFNwR0lIGXJcE0N5ZhwTQVscfHti TUJrSRJschEKWFwXHwQaBBgbGQUbGgQSGgQeHwQYGhsQGx4aHxoRCl5ZF31CT2RzEQpNXBcZExw RCkxaF29tTU1dEQpMRhdva2tra2sRCkJPF2FZHHkYSAUSG0J4EQpDWhcYGhMEEh8EGBsTBBsTEh
+ EKQl4XGxEKQkYXZk1ITnppeEUSex4RCkJHF2Z7ckhHZVtoWRtbEQpCXBcbEQpCSxdtcAFJHUBCT WAbfhEKQkkXbEBOWVNBeW1sfUsRCkJFF2VDElhMbFx/W21FEQpCThdsQE5ZU0F5bWx9SxEKQkwX bn58bVttBW5HckMRCkJsF2dlHmVaYFtLR1JSEQpCQBdmYVAfGn9dH25mGxEKQlgXaR1OX2FtXxp
+ 6e08RClpYFxgRCnlDF2BpYW9ZE25cARxnEQpwaBdlehlFWGNwbnNMaBAbGhoRCnBoF25iUEMYWB xhW1lgEBIfEQpwaBdjZl1SH0lEXgVZWRATHxEKcGgXbGV9GRtnTH5zUmQQGRoRCnBoF25Cc1t5f VplaQV4EB4SEQpwfRdrZl9ubl0eGUFDGxAZGhEKcH0Xb3xFfH9gHgUYAVgQGRoRCnB9F2BwX318
+ fh9Tb29SEBsaGhEKcH0XY0YTHlh6fVhNZh4QHhIRCnB9F2lgfUgBQkhtSWlSEB4SEQpwfRdiAXp CH2hMXWFGchAeEhEKcH0XaE9JbktmbhtTf3gQHhIRCnB/F25oWh5acEdwbV8eEB8cEQpwXxdiXX 5GY3wTHl5bGhAeGREKcH8XbWAeHWMZXWdyaHkQEx8RCnBfF2kYQU1uTBldQhgdEBMaEQpwfxdoH
+ 39mQE9hYm54bxAeGREKcF8XZUBkGWYabhhdQmQQGxoaEQpwXxdjWGcFa3JtRGlJSBAcGhEKcF8X bHp+XFBZZHBAQl4QHBoRCnBfF29YWF14YBpQUHxEEBwaEQpwXxdoUnJ8fFlyHUdcXBAeEhEKcGw XYUtBcGZtGVJ9GWwQHhIRCnBDF29jGk9/RRJSQlsaEBkaEQptfhcaEQpYTRdLESA=
+X-CLX-Shades: None
+X-Proofpoint-Processing-Postfiltering: True
+X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.235,18.0.687
+ definitions=2020-09-02_17:2020-09-02,2020-09-02 signatures=0
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0 adultscore=0 malwarescore=0
+ mlxlogscore=999 lowpriorityscore=0 suspectscore=11 spamscore=0 mlxscore=0
+ clxscore=273 priorityscore=138 phishscore=0 impostorscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2006250000
+ definitions=main-2009030004
+
+------=_Part_135668_552170318.1599094457116
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html xmlns=3D"http://www.w3.org/1999/xhtml" xmlns:v=3D"urn:schemas-microso=
+ft-com:vml" xmlns:o=3D"urn:schemas-microsoft-com:office:office">
+<head>
+
+<taxi-head-export-section-start></taxi-head-export-section-start>
+<meta content=3D"text/html; charset=3Dutf-8" http-equiv=3D"Content-Type" />
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.=
+0" />
+<meta name=3D"format-detection" content=3D"telephone=3Dno" />
+<meta name=3D"format-detection" content=3D"date=3Dno" />
+<meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge" />
+<title>EF English Live</title>
+<style type=3D"text/css">
+/* standard resets */
+
+* {
+=09-webkit-text-size-adjust: none;
+=09-ms-text-size-adjust: none;
+}
+body {
+=09margin: 0;
+=09padding: 0;
+=09mso-line-height-rule: exactly;
+}
+table td {
+=09border-collapse: collapse;
+}
+.ExternalClass {
+=09width: 100%;
+}
+.ExternalClass * {
+=09line-height: 110%
+}
+img {
+=09-ms-interpolation-mode: bicubic;
+}
+table {
+=09margin: 0 auto;
+}
+div[style*=3D"margin: 16px 0"] {
+=09margin: 0!important;
+}
+/* control text changed to links by phones */
+
+a[x-apple-data-detectors] {
+=09color: inherit!important;
+=09text-decoration: none!important;
+=09font-size: inherit!important;
+=09font-family: inherit!important;
+=09font-weight: inherit!important;
+=09line-height: inherit!important;
+}
+
+/*iPad iOS 9.1 fix*/
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 102=
+4px) {
+.hybriddivwrap {
+=09display: table!important;
+=09width: 100%!important;
+=09box-sizing: border-box;
+}
+.hybriddivcol {
+=09display: table-cell!important;
+}
+}
+
+@media screen and (min-width: 750px) {
+.wrapto750px {
+=09width: 750px!important;
+=09height: auto!important;
+}
+}
+
+@media screen and (min-width: 640px) {
+.wrapto640px {
+=09width: 640px!important;
+=09height: auto!important;
+}
+}
+
+@media screen and (min-width: 530px) {
+.wrapto530px {
+=09width: 530px!important;
+=09height: auto!important;
+}
+}
+
+/* responsive rules */
+
+@media screen and (max-device-width: 640px), screen and (max-width: 640px) =
+{
+/*wrap to 100% width*/
+.ctawrap {
+=09width: auto!important;
+}
+.showmob {
+=09width: 100%!important;
+=09display: block!important;
+=09max-height: none!important;
+}
+.emailwrapto100pc, .wrapto100pc, .hybriddivcol {
+=09width: 100%!important;
+=09max-width: 100%!important;
+=09height: auto!important;
+}
+.w100pc {
+=09width: 100%!important;
+=09max-width: 100%!important;
+=09height: auto!important;
+}
+.emailwraptomax400px {
+=09width: 100%!important;
+=09max-width: 400px!important;
+=09height: auto!important;
+}
+.emailwraptomax300 {
+=09width: 100%!important;
+=09max-width: 300px!important;
+=09height: auto!important;
+}
+.emailwraptomax100pc {
+=09width: auto!important;
+=09max-width: 100%!important;
+=09height: auto!important;
+}
+.block {
+=09display: block!important;
+}
+.mobshow {
+=09display: block!important;
+=09overflow: visible!important;
+=09float: none!important;
+=09width: 100%!important;
+=09height: auto!important;
+=09max-height: inherit!important;
+}
+.img92 {
+=09width: 92px!important;
+=09height: 92px!important;
+}
+.w46 {
+=09width: 46px!important;
+}
+.emailnomob {
+=09display: none!important;
+}
+.mobonlyimage {
+=09display: block!important;
+=09width: 100%!important;
+=09height: auto!important;
+=09margin-bottom: 20px!important;
+}
+.emailhidebg {
+=09background-image: none!important;
+}
+.emailcolsplit {
+=09display: block!important;
+=09width: 100%!important;
+}
+.emailcolsplitleft {
+=09display: block!important;
+=09width: 100%!important;
+=09text-align: left!important;
+}
+.emailcolsplitsnap {
+=09display: block!important;
+}
+.emailhidebreaks br {
+=09display: none!important;
+}
+.padding0 {
+=09padding: 0!important;
+}
+.padding10 {
+=09padding: 10px!important;
+}
+.paddingh10 {
+=09padding-left: 10px;
+=09padding-right: 10px;
+}
+.paddingh20 {
+=09padding-left: 20px;
+=09padding-right: 20px;
+}
+.pb20 {
+=09padding-bottom: 20px;
+}
+.w10 {
+=09width: 10px!important;
+=09height: auto!important;
+}
+.w20 {
+=09width: 20px!important;
+=09height: auto!important;
+}
+.h45 {
+=09height: 45px!important;
+=09vertical-align: top;
+}
+.footertext {
+=09text-align: center!important;
+=09padding: 20px!important;
+}
+.lefttext {
+=09text-align: left!important;
+}
+.righttext {
+=09text-align: right!important;
+}
+.centertext {
+=09text-align: center!important;
+}
+.centertext-padding {
+=09text-align: center!important;
+=09padding-left: 20px!important;
+=09padding-right: 20px!important;
+}
+.clearheight {
+=09height: auto!important;
+}
+.mobclearheight {
+=09height: auto!important;
+}
+.hybriddivwrap {
+=09display: table!important;
+=09width: 100%!important;
+=09box-sizing: border-box;
+}
+.stacktop {
+=09display: table-header-group!important;
+=09width: 100%!important;
+}
+.stackbot {
+=09display: table-footer-group!important;
+=09width: 100%!important;
+}
+.teachertable {
+=09border-top: none!important;
+=09border-left: none!important;
+=09border-right: none!important;
+}
+.teachertable-label, .teachertable-strengths, .teachertable-improve {
+=09display: block!important;
+=09border-right: none!important;
+}
+.teachertable-strengths, .teachertable-improve {
+=09background: #f7f7f7;
+=09font-size: 14px!important;
+}
+.teachertable-label span {
+=09font-weight: bold;
+=09font-size: 16px;
+}
+.teachertable-strengths span.moblabel {
+=09font-weight: bold;
+=09font-size: 14px!important;
+=09color: #666666!important;
+=09display: block!important;
+=09margin-bottom: 8px;
+=09font-size: 14px;
+}
+.teachertable-improve span.moblabel {
+=09font-weight: bold;
+=09font-size: 14px!important;
+=09color: #666666!important;
+=09display: block!important;
+=09margin-bottom: 8px;
+=09font-size: 14px;
+}
+/*change font size*/
+.emailfontsize36 {
+=09font-size: 36px!important;
+=09line-height: 44px!important;
+}
+.emailfontsize24 {
+=09font-size: 24px!important;
+=09line-height: 32px!important;
+}
+.emailfontsize20 {
+=09font-size: 20px!important;
+=09line-height: 28px!important;
+}
+.emailfontsize18 {
+=09font-size: 18px!important;
+=09line-height: 24px!important;
+}
+.emailfontsize16 {
+=09font-size: 16px!important;
+=09line-height: 20px!important;
+}
+.emailfontsize14 {
+=09font-size: 14px!important;
+=09line-height: 18px!important;
+}
+}
+</style>
+<style type=3D"text/css">
+u + #body a {
+=09color: inherit;
+=09text-decoration: none;
+=09font-size: inherit;
+=09font-family: inherit;
+=09font-weight: inherit;
+=09line-height: inherit;
+}
+</style>
+<style type=3D"text/css">
+@media all {
+@font-face {
+=09font-family: Roboto;
+=09font-style: normal;
+=09font-weight: 400;
+=09src: local(Roboto), local('Roboto-Regular'), url(https://fonts.gstatic.c=
+om/s/roboto/v16/CrYjSnGjrRCn0pd9VQsnFOvvDin1pK8aKteLpeZ5c0A.woff) format('w=
+off');
+}
+@font-face {
+=09font-family: Roboto;
+=09font-style: normal;
+=09font-weight: 700;
+=09src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstat=
+ic.com/s/roboto/v16/d-6IYplOFocCacKzxwXSOLO3LdcAZYWl9Si6vvxL-qU.woff) forma=
+t('woff');
+}
+}
+</style>
+
+<!--[if gte mso 9]>
+
+    <style type=3D"text/css" media=3D"all">
+        .outlook-button {
+            padding: 7px 30px 9px!important;
+        }
+    </style>
+
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+
+<!--[if mso]>
+
+<style>
+
+    span, td, table, div {
+
+      font-family: Arial, sans-serif !important;
+
+    }
+
+</style>
+
+=20
+
+<![endif]-->
+
+
+
+
+ =20
+   =20
+   =20
+ =20
+ =20
+   =20
+ =20
+ =20
+   =20
+   =20
+ =20
+ =20
+   =20
+   =20
+   =20
+ =20
+ =20
+   =20
+   =20
+   =20
+ =20
+ =20
+   =20
+   =20
+   =20
+ =20
+ =20
+   =20
+   =20
+   =20
+ =20
+ =20
+   =20
+   =20
+   =20
+ =20
+ =20
+   =20
+   =20
+   =20
+ =20
+ =20
+   =20
+   =20
+   =20
+ =20
+
+<taxi-head-export-section-end></taxi-head-export-section-end>
+</head>
+
+<body leftmargin=3D"0" topmargin=3D"0" rightmargin=3D"0" bgcolor=3D"#f7f5f0=
+" id=3D"body">
+<taxi-content-export-section-start></taxi-content-export-section-start>
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" width=3D"100%" bgcolor=3D"#f7f5f0">
+  <tr>
+    <td align=3D"center">
+       =20
+        <table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpad=
+ding=3D"0" width=3D"100%" align=3D"center">
+          <tr>
+            <td style=3D"font-size:0px" class=3D"emailnomob">&nbsp;</td>
+            <td align=3D"center" width=3D"650" style=3D"padding-right:10px;=
+">
+<div>=20
+               =20
+                <!--non-meast-->
+               =20
+                <table role=3D"presentation" border=3D"0" cellspacing=3D"0"=
+ cellpadding=3D"0" align=3D"left">
+                  <tr>
+                    <td style=3D"color:#000000; font-size:11px; font-family=
+:Roboto, Helvetica, Arial, Sans-Serif; line-height:15px; text-align:left;pa=
+dding-top:8px;padding-bottom:8px;padding-left:10px;padding-right:10px;">
+                       =20
+                        Strengths
+  and areas for improving your English&nbsp;
+                      </td>
+                  </tr>
+                </table>
+                <table role=3D"presentation" border=3D"0" cellspacing=3D"0"=
+ cellpadding=3D"0" align=3D"left">
+                  <tr>
+                   =20
+                   =20
+                   =20
+                   =20
+                  </tr>
+                </table>
+                <table role=3D"presentation" border=3D"0" cellspacing=3D"0"=
+ cellpadding=3D"0" align=3D"right">
+                  <tr>
+                    <td style=3D"color:#333333; font-size:11px; font-family=
+:Roboto,Arial,Helvetica,sans-serif; line-height:15px; text-align:left;paddi=
+ng-top:8px;padding-left:10px;padding-bottom:8px;"> <a name=3D"readonline" h=
+ref=3D"http://links.t-educationfirst.mkt4686.com/servlet/MailView?ms=3DNTY5=
+MjY1MDcS1&r=3DLTc5MjQ1NjI4MDQS1&j=3DMTk2MDE1OTQ4NQS2&mt=3D1&rt=3D0" xt=3D"S=
+PCLICKTOVIEW" target=3D"_blank" style=3D"text-decoration:underline; color:#=
+4990E2;" id=3D"readonline">Read Online</a> </td>
+                  </tr>
+                </table>
+               =20
+                <!--end non meast-->=20
+               =20
+              </div>
+             =20
+</td>
+            <td style=3D"font-size:0px" class=3D"emailnomob">&nbsp;</td>
+          </tr>
+        </table>
+      </td>
+  </tr>
+</table>
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" width=3D"100%" bgcolor=3D"#f7f5f0">
+  <tr>
+    <td style=3D"font-size:0px" class=3D"emailnomob">&nbsp;</td>
+    <td align=3D"center" bgcolor=3D"#ffffff" width=3D"750">
+
+         =20
+         =20
+         =20
+          <table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellp=
+adding=3D"0" width=3D"100%" align=3D"center">
+            <tr>
+              <td style=3D"font-size:0px" class=3D"emailnomob">&nbsp;</td>
+              <td align=3D"center" width=3D"750">
+<!--[if (gte mso 9)|(IE)]><table role=3D"presentation" border=3D"0" cellspa=
+cing=3D"0" cellpadding=3D"0" width=3D"640"><tr><td align=3D"center"><![endi=
+f]-->
+               =20
+                <table role=3D"presentation" width=3D"100%" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0" style=3D"max-width:640px;" class=3D"wrapt=
+o640px">
+                  <tr>
+                    <td align=3D"center" valign=3D"top" width=3D"100%" clas=
+s=3D"paddingh20"><table role=3D"presentation" width=3D"100%" border=3D"0" c=
+ellspacing=3D"0" cellpadding=3D"0">
+                        <tr>
+                          <td>
+<div>=20
+                             =20
+                              <!--non meast start-->
+                             =20
+                              <table role=3D"presentation" border=3D"0" cel=
+lspacing=3D"0" cellpadding=3D"0" align=3D"left" class=3D"emailwrapto100pc">
+                                <tr>
+                                  <td align=3D"center" style=3D"color:#3333=
+33; font-size:12px; font-family:Roboto,Arial,Helvetica,sans-serif; " height=
+=3D"70">
+                                     =20
+                                     =20
+                                     =20
+                                     =20
+                                     =20
+                                      <a target=3D"_blank" style=3D"color:#=
+ffffff;" name=3D"logo" id=3D"logo" href=3D"http://recp.mkt41.net/ctt?m=3D56=
+926507&r=3DLTc5MjQ1NjI4MDQS1&b=3D0&j=3DMTk2MDE1OTQ4NQS2&k=3Dlogo&kx=3D1&kt=
+=3D12&kd=3Dhttps://corporate.ef.com.cn/partner/Corp/default.aspx%3Fetag=3DE=
+Mcn_TR_TX_PLS_40F_RETE_ST" ><img style=3D"display:block;color:#ffffff;" bor=
+der=3D"0"   src=3D"https://s3.amazonaws.com/crm-email/Logos/corporate-logo-=
+69px.png" height=3D"69" /></a> </td>
+                                </tr>
+                              </table>
+                              <!--[if (gte mso 9)|(IE)]></td><td valign=3D"=
+middle" height=3D"70" style=3D"border-bottom:1px solid #BEBEBE;"><![endif]-=
+->
+                             =20
+                             =20
+                              <!--non meast end-->=20
+                             =20
+                            </div>
+                           =20
+</td>
+                        </tr>
+                      </table></td>
+                  </tr>
+                </table>
+               =20
+                <!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
+</td>
+              <td style=3D"font-size:0px" class=3D"emailnomob">&nbsp;</td>
+            </tr>
+          </table>
+          <table role=3D"presentation" width=3D"100%" border=3D"0" cellspac=
+ing=3D"0" cellpadding=3D"0" align=3D"center">
+            <tr>
+              <td style=3D"font-size:0px" class=3D"emailnomob">&nbsp;</td>
+              <td width=3D"640" style=3D"border-bottom:1px solid #BEBEBE;fo=
+nt-size:0;line-height:0;" height=3D"1">&nbsp;</td>
+              <td style=3D"font-size:0px" class=3D"emailnomob">&nbsp;</td>
+            </tr>
+          </table>
+       =20
+     =20
+         =20
+         =20
+         =20
+         =20
+          <table role=3D"presentation" width=3D"100%" border=3D"0" cellspac=
+ing=3D"0" cellpadding=3D"0" bgcolor=3D"#ffffff">
+            <tr>
+              <td style=3D"font-size:0px" class=3D"emailnomob">&nbsp;</td>
+              <td align=3D"center" valign=3D"top" width=3D"640">
+
+                <table role=3D"presentation" border=3D"0" cellspacing=3D"0"=
+ cellpadding=3D"0" width=3D"100%">
+                  <tr>
+                    <td style=3D"font-size:1px; font-family:Roboto, Helveti=
+ca, Arial, Sans-Serif; line-height:1px; text-align:left;padding-top:35px;">=
+</td>
+                  </tr>
+                </table>
+               =20
+                <table role=3D"presentation" border=3D"0" cellspacing=3D"0"=
+ cellpadding=3D"0" width=3D"100%">
+                  <tr>
+                    <td style=3D"font-family:Roboto, Helvetica, Arial, Sans=
+-Serif;text-align:left;font-size:16px; line-height:24px!important;color: #0=
+00000; " class=3D"paddingh20"><div>
+                        Hi
+  Janny,<br />&nbsp;<br />I hope
+  you enjoyed our recent class together. I wanted to share some feedback, s=
+o
+  you can see how well you&#x2019;re doing and how you can improve your Eng=
+lish.&nbsp;<br /><br /><strong>Here are
+  the details from your class:</strong>
+                      </div></td>
+                  </tr>
+                </table>
+               =20
+                <table role=3D"presentation" width=3D"100%" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0">
+                  <tr>
+                    <td align=3D"center" valign=3D"top" style=3D"line-heigh=
+t:1px;font-size:1px;" height=3D"20">&nbsp;</td>
+                  </tr>
+                </table>
+</td>
+              <td style=3D"font-size:0px" class=3D"emailnomob">&nbsp;</td>
+            </tr>
+          </table>
+       =20
+         =20
+         =20
+         =20
+          <table role=3D"presentation" width=3D"100%" border=3D"0" cellspac=
+ing=3D"0" cellpadding=3D"0" bgcolor=3D"#ffffff">
+            <tr>
+              <td style=3D"font-size:0px" class=3D"emailnomob">&nbsp;</td>
+              <td align=3D"left" valign=3D"top" width=3D"640" class=3D"padd=
+ingh20">
+<table role=3D"presentation" border=3D"0" cellspacing=3D"0" cellpadding=3D"=
+0" align=3D"left" style=3D"min-width:200px;">
+                  <tr>
+                    <td width=3D"19" style=3D"padding:2px 8px 0 0;" valign=
+=3D"top"><img   src=3D"https://s3.amazonaws.com/crm-email/PL+Emails/calende=
+r-icon.png" width=3D"14" height=3D"16" style=3D"display:block" /></td>
+                    <td style=3D"font-family:Roboto, Helvetica, Arial, Sans=
+-Serif; font-size:16px; line-height:24px!important;color: #000000;; text-al=
+ign:left;padding-bottom:15px;"><div>
+                        Date: 09/02/2020
+                      </div></td>
+                   =20
+                  </tr>
+                  <tr>
+                    <td width=3D"19" style=3D"padding:2px 8px 0 0;" valign=
+=3D"top"><img   src=3D"https://s3.amazonaws.com/crm-email/PL+Emails/clock-i=
+con.png" width=3D"16" height=3D"16" style=3D"display:block" /></td>
+                    <td style=3D"font-family:Roboto, Helvetica, Arial, Sans=
+-Serif; font-size:16px; line-height:24px!important;color: #000000;; text-al=
+ign:left;padding-bottom:15px;"><div>
+                        Time: 09:00 (UTC+08:00) Beijing, Chongqing, Hong Ko=
+ng, Urumqi
+                      </div></td>
+                   =20
+                  </tr>
+                  <tr>
+                    <td width=3D"19" style=3D"padding:2px 8px 0 0;" valign=
+=3D"top"><img   src=3D"https://s3.amazonaws.com/crm-email/PL+Emails/teacher=
+-icon.png" width=3D"19" height=3D"15" style=3D"display:block" /></td>
+                    <td style=3D"font-family:Roboto, Helvetica, Arial, Sans=
+-Serif; font-size:16px; line-height:24px!important;color: #000000;; text-al=
+ign:left;padding-bottom:15px;"><div>
+                        Your teacher: Rachel W.
+                      </div></td>
+                   =20
+                  </tr>
+                  <tr>
+                    <td width=3D"19" style=3D"padding:2px 8px 0 0;" valign=
+=3D"top"><img   src=3D"https://s3.amazonaws.com/crm-email/PL+Emails/topic-i=
+con.png" width=3D"16" height=3D"17" style=3D"display:block" /></td>
+                    <td style=3D"font-family:Roboto, Helvetica, Arial, Sans=
+-Serif; font-size:16px; line-height:24px!important;color: #000000;; text-al=
+ign:left;padding-bottom:15px;"><div>
+                        Class topic: Job interviews=20
+                      </div></td>
+                   =20
+                  </tr>
+                  <tr>
+                    <td style=3D"font-size:1px;line-height:1px;border-botto=
+m:1px solid #9b9b9b;">&nbsp;</td>
+                    <td style=3D"font-size:1px;line-height:1px;border-botto=
+m:1px solid #9b9b9b;">&nbsp;</td>
+                   =20
+                  </tr>
+                </table>
+               =20
+                <table role=3D"presentation" width=3D"100%" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0">
+                  <tr>
+                    <td align=3D"center" valign=3D"top" style=3D"line-heigh=
+t:1px;font-size:1px;" height=3D"20">&nbsp;</td>
+                  </tr>
+                </table>
+</td>
+              <td style=3D"font-size:0px" class=3D"emailnomob">&nbsp;</td>
+            </tr>
+          </table>
+       =20
+         =20
+         =20
+         =20
+         =20
+          <table role=3D"presentation" width=3D"100%" border=3D"0" cellspac=
+ing=3D"0" cellpadding=3D"0" bgcolor=3D"#ffffff">
+            <tr>
+              <td style=3D"font-size:0px" class=3D"emailnomob">&nbsp;</td>
+              <td valign=3D"top" width=3D"640" align=3D"left" style=3D"padd=
+ing:20px 0;">
+<table role=3D"presentation" width=3D"100%" border=3D"0" cellspacing=3D"0" =
+cellpadding=3D"0" align=3D"left" style=3D"border:1px solid #e4e4e4;" class=
+=3D"teachertable">
+                  <tr>
+                    <td class=3D"emailnomob" align=3D"left" style=3D"font-f=
+amily:Roboto, Helvetica, Arial, Sans-Serif;font-size:16px;color:#000000;bor=
+der-right:1px solid #e4e4e4;padding:10px; text-align:center;background:#f7f=
+7f7;"></td>
+                    <td class=3D"emailnomob" align=3D"left" style=3D"font-f=
+amily:Roboto, Helvetica, Arial, Sans-Serif;font-size:16px;color:#000000;bor=
+der-right:1px solid #e4e4e4;padding:10px; text-align:center;background:#f7f=
+7f7;"><strong>Strengths</strong></td>
+                    <td class=3D"emailnomob" align=3D"left" style=3D"font-f=
+amily:Roboto, Helvetica, Arial, Sans-Serif;font-size:16px;color:#000000;pad=
+ding:10px; text-align:center;background:#f7f7f7;"><strong>Areas for improve=
+ment</strong></td>
+                  </tr>
+                  <tr>
+                    <td class=3D"teachertable-label" align=3D"left" valign=
+=3D"top" style=3D"font-family:Roboto, Helvetica, Arial, Sans-Serif;font-siz=
+e:16px;color:#000000;border-right:1px solid #e4e4e4;border-top:1px solid #e=
+4e4e4;padding: 10px;"><strong>Grammatical accuracy</strong></td>
+                    <td class=3D"teachertable-strengths" align=3D"left" val=
+ign=3D"top" style=3D"font-family:Roboto, Helvetica, Arial, Sans-Serif;font-=
+size:14px;color:#000000;border-right:1px solid #e4e4e4;border-top:1px solid=
+ #e4e4e4;padding: 10px;">
+<span class=3D"moblabel" style=3D"display:none;font-size:0px;color:#ffffff;=
+"><strong>Strengths</strong></span>
+                      <span style=3D"font-size:16px; line-height:24px;color=
+: #000000; ">  You contributed really well to the topic with your own examp=
+les and insights.
+You demonstrated a good range of conversational English skills in our class=
+.
+Practice doing some writing in English. This is the best way to practice co=
+mplex sentence construction.
+Make a point of paying careful attention to each lesson's vocabulary - writ=
+e these words down and try to use them during the class.</span>
+</td>
+                    <td class=3D"teachertable-improve" align=3D"left" valig=
+n=3D"top" style=3D"font-family:Roboto, Helvetica, Arial, Sans-Serif;font-si=
+ze:14px;color:#000000;border-top:1px solid #e4e4e4;padding: 10px;">
+<span class=3D"moblabel" style=3D"display:none;font-size:0px;color:#ffffff;=
+"><strong>Areas for improvement</strong></span>
+                      <span style=3D"font-size:16px; line-height:24px;color=
+: #000000; ">You'll want to pay attention to word form. Pay attention to th=
+e different forms words take when they are being used as adverbs or adjecti=
+ves or nouns.
+You need to work on your sentence structure and your word choice. Try and d=
+o some exercises on verb tenses and prepositions as I feel these two areas =
+need improvement.
+Do some written work as this will greatly improve your sentence structure a=
+nd you will be able to make note of your weak points.</span>
+</td>
+                  </tr>
+                  <tr>
+                    <td class=3D"teachertable-label" align=3D"left" valign=
+=3D"top" style=3D"font-family:Roboto, Helvetica, Arial, Sans-Serif;font-siz=
+e:16px;color:#000000;border-right:1px solid #e4e4e4;border-top:1px solid #e=
+4e4e4;padding: 10px;"><strong>Verbal expression</strong></td>
+                    <td class=3D"teachertable-strengths" align=3D"left" val=
+ign=3D"top" style=3D"font-family:Roboto, Helvetica, Arial, Sans-Serif;font-=
+size:14px;color:#000000;border-right:1px solid #e4e4e4;border-top:1px solid=
+ #e4e4e4;padding: 10px;">
+<span class=3D"moblabel" style=3D"display:none;font-size:0px;color:#ffffff;=
+"><strong>Strengths</strong></span>
+                      <span style=3D"font-size:16px; line-height:24px;color=
+: #000000; ">You understood the lesson very well and you explained yourself=
+ clearly with good choice of words</span>
+</td>
+                    <td class=3D"teachertable-improve" align=3D"left" valig=
+n=3D"top" style=3D"font-family:Roboto, Helvetica, Arial, Sans-Serif;font-si=
+ze:14px;color:#000000;border-top:1px solid #e4e4e4;padding: 10px;">
+<span class=3D"moblabel" style=3D"display:none;font-size:0px;color:#ffffff;=
+"><strong>Areas for improvement</strong></span>
+                      <span style=3D"font-size:16px; line-height:24px;color=
+: #000000; ">However I would like you to work on building your word bank an=
+d picking up some idiomatic expressions..=C2=A0Make a point of paying caref=
+ul attention to each lesson's vocabulary - write these words down and try t=
+o use them during the class.=C2=A0</span>
+</td>
+                  </tr>
+                  <tr>
+                    <td class=3D"teachertable-label" align=3D"left" valign=
+=3D"top" style=3D"font-family:Roboto, Helvetica, Arial, Sans-Serif;font-siz=
+e:16px;color:#000000;border-right:1px solid #e4e4e4;border-top:1px solid #e=
+4e4e4;padding: 10px;"><strong>Speech clarity</strong></td>
+                    <td class=3D"teachertable-strengths" align=3D"left" val=
+ign=3D"top" style=3D"font-family:Roboto, Helvetica, Arial, Sans-Serif;font-=
+size:14px;color:#000000;border-right:1px solid #e4e4e4;border-top:1px solid=
+ #e4e4e4;padding: 10px;">
+<span class=3D"moblabel" style=3D"display:none;font-size:0px;color:#ffffff;=
+"><strong>Strengths</strong></span>
+                      <span style=3D"font-size:16px; line-height:24px;color=
+: #000000; ">  When you look up new words make sure that you are pronouncin=
+g them properly by looking at the phonetics
+</span>
+</td>
+                    <td class=3D"teachertable-improve" align=3D"left" valig=
+n=3D"top" style=3D"font-family:Roboto, Helvetica, Arial, Sans-Serif;font-si=
+ze:14px;color:#000000;border-top:1px solid #e4e4e4;padding: 10px;">
+<span class=3D"moblabel" style=3D"display:none;font-size:0px;color:#ffffff;=
+"><strong>Areas for improvement</strong></span>
+                      <span style=3D"font-size:16px; line-height:24px;color=
+: #000000; ">Work on stress and intonation as this brings expression to you=
+r speech.
+I'd now like you to work on sharpening and defining your pronunciation</spa=
+n>
+</td>
+                  </tr>
+                  <tr>
+                    <td class=3D"teachertable-label" align=3D"left" valign=
+=3D"top" style=3D"font-family:Roboto, Helvetica, Arial, Sans-Serif;font-siz=
+e:16px;color:#000000;border-right:1px solid #e4e4e4;border-top:1px solid #e=
+4e4e4;padding: 10px;"><strong>Confidence</strong></td>
+                    <td class=3D"teachertable-strengths" align=3D"left" val=
+ign=3D"top" style=3D"font-family:Roboto, Helvetica, Arial, Sans-Serif;font-=
+size:14px;color:#000000;border-right:1px solid #e4e4e4;border-top:1px solid=
+ #e4e4e4;padding: 10px;">
+<span class=3D"moblabel" style=3D"display:none;font-size:0px;color:#ffffff;=
+"><strong>Strengths</strong></span>
+                      <span style=3D"font-size:16px; line-height:24px;color=
+: #000000; ">Always try and speak confidently, as this gives an impression =
+of fluency and people tend to ignore minor errors</span>
+</td>
+                    <td class=3D"teachertable-improve" align=3D"left" valig=
+n=3D"top" style=3D"font-family:Roboto, Helvetica, Arial, Sans-Serif;font-si=
+ze:14px;color:#000000;border-top:1px solid #e4e4e4;padding: 10px;">
+<span class=3D"moblabel" style=3D"display:none;font-size:0px;color:#ffffff;=
+"><strong>Areas for improvement</strong></span>
+                      <span style=3D"font-size:16px; line-height:24px;color=
+: #000000; ">I find that you are eager to talk about the given topic and ex=
+press your viewpoint well.
+=09</span>
+</td>
+                  </tr>
+                  <tr>
+                    <td class=3D"teachertable-label" align=3D"left" valign=
+=3D"top" style=3D"font-family:Roboto, Helvetica, Arial, Sans-Serif;font-siz=
+e:16px;color:#000000;border-right:1px solid #e4e4e4;border-top:1px solid #e=
+4e4e4;padding: 10px;"><strong>Topic range</strong></td>
+                    <td class=3D"teachertable-strengths" align=3D"left" val=
+ign=3D"top" style=3D"font-family:Roboto, Helvetica, Arial, Sans-Serif;font-=
+size:14px;color:#000000;border-right:1px solid #e4e4e4;border-top:1px solid=
+ #e4e4e4;padding: 10px;">
+<span class=3D"moblabel" style=3D"display:none;font-size:0px;color:#ffffff;=
+"><strong>Strengths</strong></span>
+                      <span style=3D"font-size:16px; line-height:24px;color=
+: #000000; ">You seem to be unlimited when it comes to range, as you spoke =
+widely yet relevantly. You offered your own opinions and examples, and elab=
+orated without needing to be prompted. As you expand your vocabulary you wi=
+ll be able to talk about an even wider range of topics.=C2=A0
+</span>
+</td>
+                    <td class=3D"teachertable-improve" align=3D"left" valig=
+n=3D"top" style=3D"font-family:Roboto, Helvetica, Arial, Sans-Serif;font-si=
+ze:14px;color:#000000;border-top:1px solid #e4e4e4;padding: 10px;">
+<span class=3D"moblabel" style=3D"display:none;font-size:0px;color:#ffffff;=
+"><strong>Areas for improvement</strong></span>
+                      <span style=3D"font-size:16px; line-height:24px;color=
+: #000000; ">Push yourself even further by speaking about topics that you m=
+ight not normally choose to speak about.=C2=A0</span>
+</td>
+                  </tr>
+                 =20
+                 =20
+                 =20
+                 =20
+                </table>
+               =20
+                <table role=3D"presentation" width=3D"100%" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0">
+                  <tr>
+                    <td align=3D"center" valign=3D"top" style=3D"line-heigh=
+t:1px;font-size:1px;" height=3D"20">&nbsp;</td>
+                  </tr>
+                </table>
+</td>
+              <td style=3D"font-size:0px" class=3D"emailnomob">&nbsp;</td>
+            </tr>
+          </table>
+       =20
+         =20
+         =20
+         =20
+         =20
+          <table role=3D"presentation" width=3D"100%" border=3D"0" cellspac=
+ing=3D"0" cellpadding=3D"0" bgcolor=3D"#ffffff">
+            <tr>
+              <td style=3D"font-size:0px" class=3D"emailnomob">&nbsp;</td>
+              <td align=3D"center" valign=3D"top" width=3D"640">
+
+               =20
+               =20
+                <table role=3D"presentation" border=3D"0" cellspacing=3D"0"=
+ cellpadding=3D"0" width=3D"100%">
+                  <tr>
+                    <td style=3D"font-family:Roboto, Helvetica, Arial, Sans=
+-Serif;text-align:left;font-size:16px; line-height:24px!important;color: #0=
+00000; " class=3D"paddingh20"><div>
+                        <strong>Focus: <br /></strong><em>Accuracy/expressi=
+on/confidence/clarity</em><br /><br /><strong>Overall  comments:</strong><b=
+r /><em>
+It was a pleasure meeting you. You made a very good effort. Keep it up. Ple=
+ase make note of the feedback and apply the suggestions, it will help you i=
+mprove.=20
+You participated wonderfully in today's class! I enjoyed the lesson and dis=
+cussion very much.
+Regards
+Rachel  </em><br /><br />    Keep  practising your English and you&#x2019;l=
+l continue to grow in confidence and  fluency. Private Classes are one of t=
+he best ways to boost your speaking  skills.<br /><br />    I hope to see y=
+ou in class again soon.   <br /><br />Best wishes,<br /><strong>Rachel W.</=
+strong><br />EF Teacher
+                      </div></td>
+                  </tr>
+                </table>
+               =20
+                <table role=3D"presentation" width=3D"100%" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0">
+                  <tr>
+                    <td align=3D"center" valign=3D"top" style=3D"line-heigh=
+t:1px;font-size:1px;" height=3D"20">&nbsp;</td>
+                  </tr>
+                </table>
+</td>
+              <td style=3D"font-size:0px" class=3D"emailnomob">&nbsp;</td>
+            </tr>
+          </table>
+       =20
+         =20
+         =20
+         =20
+         =20
+          <table role=3D"presentation" width=3D"100%" border=3D"0" cellspac=
+ing=3D"0" cellpadding=3D"0" bgcolor=3D"#000000">
+            <tr>
+              <td style=3D"font-size:0px" class=3D"emailnomob">&nbsp;</td>
+              <td align=3D"center" valign=3D"top" width=3D"640">
+
+                <table role=3D"presentation" border=3D"0" cellspacing=3D"0"=
+ cellpadding=3D"0" width=3D"100%">
+                  <tr>
+                    <td style=3D"font-size:1px; font-family:Roboto, Helveti=
+ca, Arial, Sans-Serif; line-height:1px; text-align:left;padding-top:35px;">=
+</td>
+                  </tr>
+                </table>
+               =20
+                <table role=3D"presentation" border=3D"0" cellspacing=3D"0"=
+ cellpadding=3D"0" width=3D"100%">
+                  <tr>
+                    <td style=3D"font-family:Roboto, Helvetica, Arial, Sans=
+-Serif;text-align:left;font-size:16px; line-height:24px!important;color: #0=
+00000; " class=3D"paddingh20"><div>
+                        <div style=3D"color:#ffffff; font-size:10px;">&#13;
+<a name=3D"login" style=3D"text-decoration:none;color:#ffffff;" href=3D"htt=
+p://recp.mkt41.net/ctt?m=3D56926507&r=3DLTc5MjQ1NjI4MDQS1&b=3D0&j=3DMTk2MDE=
+1OTQ4NQS2&k=3Dlogin&kx=3D1&kt=3D12&kd=3Dhttps://corporate.ef.com.cn/partner=
+/Corp/default.aspx%3Fetag=3DEMcn_TR_TX_PLS_40F_RETE_ST"  id=3D"login"><stro=
+ng>LOG IN</strong></a><strong> | <a name=3D"contact" style=3D"text-decorati=
+on:none;color:#ffffff;" href=3D"http://recp.mkt41.net/ctt?m=3D56926507&r=3D=
+LTc5MjQ1NjI4MDQS1&b=3D0&j=3DMTk2MDE1OTQ4NQS2&k=3Dcontact&kx=3D1&kt=3D12&kd=
+=3Dhttps://corporate.ef.com.cn/customerservice/contactus/inschool%3Fetag=3D=
+EMcn_TR_TX_PLS_40F_RETE_ST"  id=3D"contact">CONTACT US</a></strong><br />&#=
+13;
+=C2=A9 1996-2018 EF Education First</div>
+                      </div></td>
+                  </tr>
+                </table>
+               =20
+                <table role=3D"presentation" width=3D"100%" border=3D"0" ce=
+llspacing=3D"0" cellpadding=3D"0">
+                  <tr>
+                    <td align=3D"center" valign=3D"top" style=3D"line-heigh=
+t:1px;font-size:1px;" height=3D"20">&nbsp;</td>
+                  </tr>
+                </table>
+</td>
+              <td style=3D"font-size:0px" class=3D"emailnomob">&nbsp;</td>
+            </tr>
+          </table>
+       =20
+     =20
+</td>
+    <td style=3D"font-size:0px" class=3D"emailnomob">&nbsp;</td>
+  </tr>
+</table>
+
+<!--footer-->
+
+ =20
+
+
+ =20
+ =20
+ =20
+ =20
+ =20
+
+
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+ =20
+
+
+ =20
+   =20
+    <style data-ignore-inlining=3D""><![CDATA[@media print{ #_t { backgroun=
+d-image: url('https://w3crdonc.emltrk.com/w3crdonc?p&d=3Djiao.zhu@pwc.com')=
+;}} div.OutlookMessageHeader {background-image:url('https://w3crdonc.emltrk=
+.com/w3crdonc?f&d=3Djiao.zhu@pwc.com')} table.moz-email-headers-table {back=
+ground-image:url('https://w3crdonc.emltrk.com/w3crdonc?f&d=3Djiao.zhu@pwc.c=
+om')} blockquote #_t {background-image:url('https://w3crdonc.emltrk.com/w3c=
+rdonc?f&d=3Djiao.zhu@pwc.com')} #MailContainerBody #_t {background-image:ur=
+l('https://w3crdonc.emltrk.com/w3crdonc?f&d=3Djiao.zhu@pwc.com')}</style>
+<div id=3D"_t"></div>
+<img   src=3D"https://w3crdonc.emltrk.com/w3crdonc?d=3Djiao.zhu@pwc.com" wi=
+dth=3D"1" height=3D"1" border=3D"0" alt=3D"" />
+ =20
+
+
+<taxi-content-export-section-end></taxi-content-export-section-end>
+<a name=3D"CustomOptOut_SPCUSTOMOPTOUT" id=3D"CustomOptOut_SPCUSTOMOPTOUT" =
+href=3D"http://links.t-educationfirst.mkt4686.com/ui/modules/display/optOut=
+.jsp?&m=3D56926507&r=3DLTc5MjQ1NjI4MDQS1&j=3DMTk2MDE1OTQ4NQS2&mt=3D1&rt=3D0=
+"  style=3D"color:#f7f5f0;font-size:1px;line-height:1px;text-decoration:non=
+e;display:none;mso-hide:all;">&nbsp;</a>
+<IMG src=3D"http://links.t-educationfirst.mkt4686.com/open/log/56926507/LTc=
+5MjQ1NjI4MDQS1/0/MTk2MDE1OTQ4NQS2/1/0" style=3D"display: none"></body>
+</html>
+
+
+
+------=_Part_135668_552170318.1599094457116--
+
